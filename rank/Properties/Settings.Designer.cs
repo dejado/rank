@@ -34,5 +34,17 @@ namespace rank.Properties {
                 this["nickname"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int score {
+            get {
+                return ((int)(this["score"]));
+            }
+            set {
+                this["score"] = value;
+            }
+        }
     }
 }

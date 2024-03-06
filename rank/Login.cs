@@ -29,7 +29,7 @@ namespace rank
         {
             try
             {
-                MySqlConnection con = new MySqlConnection("Server = localhost; Database = rank; Uid = root; Pwd = programRobot128!");
+                MySqlConnection con = new MySqlConnection("Server = 127.0.0.1; Database = rank; Uid = rank; Pwd = rank123!");
                 //데이터 베이스 = 스키마명
                 //DB 로그인 아이디, 비밀번호
 

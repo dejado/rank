@@ -19,14 +19,18 @@ namespace rank
         public Rank()
         {
             InitializeComponent();
+            this.Text = "게임 순위 확인";
+            this.Size = new Size(1000, 650);   //나중에 배경 사이즈 & 속도 조절 해야함
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             ShowGrid();
+            name_lb.Text = Properties.Settings.Default.nickname+" : "+ Properties.Settings.Default.score;
+            
         }
-
         public void InsertData(string nickName,int score)
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
                 //SQL 서버와 연결, database=스키마 이름
                 connection.Open();
                 //SQL 서버 연결
@@ -70,7 +74,7 @@ namespace rank
         public void CompareNickName(string nickname,int score)
         {
 
-            string cnn = "Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;";
+            string cnn = "Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 //SQL 서버와 연결, database=스키마 이름
@@ -95,7 +99,7 @@ namespace rank
 
         public void DeleteName(string nickname)
         {
-            string cnn = "Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;";
+            string cnn = "Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름
@@ -117,7 +121,7 @@ namespace rank
 
         public int GetRanking(string nickname)
         {
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
             string Query = "SELECT * from ranking WHERE name=@nickname";
@@ -135,7 +139,7 @@ namespace rank
         
         public void UpdateRank(int rank)
         {
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
             string Query = "SELECT * from ranking";
@@ -156,7 +160,7 @@ namespace rank
         }
         public int CompareScore(string nickname,int score)
         {
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
             string Query = "SELECT * from ranking WHERE name=@nickname";
@@ -186,7 +190,7 @@ namespace rank
         {
 
             int ranking = 1;
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
             string Query = "SELECT * from ranking";
@@ -223,7 +227,7 @@ namespace rank
 
         public void ChangeRank(int ranking, int score)
         {
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
 
@@ -241,7 +245,7 @@ namespace rank
             dataGridView1.Rows.Clear();
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=localhost;Database=rank;Uid=root;Pwd=programRobot128!;");
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=rank;Uid=rank;Pwd=rank123!;");
                 //SQL 서버와 연결, database=스키마 이름
                 connection.Open();
                 //SQL 서버 연결

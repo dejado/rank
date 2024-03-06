@@ -32,7 +32,7 @@ namespace rank
 
         private void CheckName_Click(object sender, EventArgs e)
         {
-            MySqlConnection con = new MySqlConnection("Server = localhost; Database = rank; Uid = root; Pwd = programRobot128!;");
+            MySqlConnection con = new MySqlConnection("Server = 127.0.0.1; Database = rank; Uid = rank; Pwd = rank123!;");
             con.Open();
 
 
@@ -73,7 +73,7 @@ namespace rank
 
         private void CheckId_Click(object sender, EventArgs e)
         {
-            MySqlConnection con = new MySqlConnection("Server = localhost; Database = rank; Uid = root; Pwd = programRobot128!;");
+            MySqlConnection con = new MySqlConnection("Server = 127.0.0.1; Database = rank; Uid = rank; Pwd = rank123!;");
             con.Open();
 
             string CompQuery_Id = "SELECT COUNT(*) as cnt FROM account_info WHERE id = @ID";
@@ -137,7 +137,7 @@ namespace rank
                 {
                     try
                     {
-                        MySqlConnection con = new MySqlConnection("Server = localhost; Database = rank; Uid = root; Pwd = programRobot128!");
+                        MySqlConnection con = new MySqlConnection("Server = 127.0.0.1; Database = rank; Uid = rank; Pwd = rank123!");
 
                         con.Open();
 

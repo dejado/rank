@@ -76,22 +76,20 @@ namespace rank
             this.MouseClick += Fm_Click;
             pictureBox1.MouseClick += Fm_Click;
 
+            name_lb.Text= Properties.Settings.Default.nickname + "님 환영합니다!";
         }
 
-        string nickname = string.Empty;
-        public string NickName(string nickName)
+        public void NickName(string nickName)
         {
             // nickname 값을 설정에 저장
             Properties.Settings.Default.nickname = nickName;
             Properties.Settings.Default.Save();
-
             // nickname 변수에도 할당
-            return nickname = nickName;
         }
         private void mainGame_Load(object sender, EventArgs e)
         {
             // 설정에서 nickname 값을 가져와서 레이블에 표시
-            this.Text = Properties.Settings.Default.nickname;
+            this.Text = "게임화면";
         }
 
         private void InitializeTimer()
@@ -310,7 +308,9 @@ namespace rank
         {
             gameStopped = true;
             MessageBox.Show("게임 종료! 최종 점수: " + score.ToString());
-
+            Properties.Settings.Default.score = score;
+            Properties.Settings.Default.Save();
+            // score 값을 설정에 저장
             Rank rank = new Rank();
             rank.InsertData(Properties.Settings.Default.nickname, score);
             rank.Show();
@@ -377,10 +377,6 @@ namespace rank
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 
